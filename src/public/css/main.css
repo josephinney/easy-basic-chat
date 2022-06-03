@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(32, 17, 17);
+    
+}
+
+#contentWrap{
+    display: none
+}
+
+#send {
+    width: 25px;
+    height: 25px;
+}
+
+#user {
+    margin-right: 15px;
+    width: 25px;
+    height: 25px;
+}
+
+#boton {
+    margin-left: 10px;
+}
+
+.error{
+    color: red;
+}
+
+.whisper{
+    color: gray;
+    font-style: italic;
+}

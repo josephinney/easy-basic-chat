@@ -1,0 +1,53 @@
+io.on('connection', socket => {
+    console.log('new user connected')      ---------> Se va a quedar escuchando cuando haya una nueva coneccion de socket(cliente)
+})                                                     Y cuando se conecte un nuevo cliente mostrara por consola 'new user connected'
+
+
+ <script src="/socket.io/socket.io.js" charset="UTF-8" ></script>-----> Codigo de JS que permite usar websocket del lado del cliente
+
+app.use(express.static('public'));-----> Solo funciona cuando la carpeta public esta en el mismo origen que la carpeta node_modules, si no es asi 
+                                         hay que unir directorios
+
+const $messageForm = $('#message-form');--------> obtaining DOM elements from the interface using Jquery
+
+socket.on('send message', function (data) {    ----->Cunado el cliente me envie este mensaje "send message" hacia el servidor yo tengo que estar 
+                                                     preparado para recibir datos
+ })
+
+io.sockets.emit('new message', data);---------> Reenvia el dato recibido hacia todos los clientes
+
+$chat.append(data + '<br/>')----> Agrega la informacion en el cuerpo del chat
+
+socket.emit('new user', $nickname.val(), (data) => {
+                                                          ------>Va a enviarle el evento 'new user' al servidor con los datos almacenados en
+        });							 '$nickname.val()' y el server va a enviar una respuesta de validacion 
+								  (data) => {}
+
+socket.on('new user', (data, cb) => {
+            			      -------> El servidor va a recibir los datos y el callback cuando le emitan el evento 'new user'
+        })
+
+let nicknames = []------->nicknames guardados en la memoria del server
+
+if(nicknames.indexOf(data))------->Si le envio un dato al arreglo nickname y coincide con algunos de los del arreglo me devuelve su indice, si no
+				   existe devuelve -1
+
+socket.nickname = data;
+nicknames.push(socket.nickname);  ------> guardando el nickname dentro del arreglo
+
+io.sockets.emit('usernames', nicknames);-------> Va a enviar al cliente mediante el evento 'usernames' la lista de todos los usuarios en el arreglo 'nicknames'
+
+socket.on('disconnect')--------------> Evento que escucha cuando se desconecta un cliente
+
+nicknames.splice(nicknames.indexOf(socket.nickname), 1)------->Elimina un elemento del arreglo pasandole el indice.... 1, remueve un solo elem.
+
+data.trim()------> Elimina los espacios de mas en los textos
+
+let messages = await Chat.find({}).limit(8);------> Devuelve solo los ultimos 8 mensajes 
+
+
+
+
+
+
+
